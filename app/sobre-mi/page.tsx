@@ -54,7 +54,7 @@ export default function SobreMiPage() {
             </p>
           </Reveal>
           <Reveal delay={0.1}>
-            <div className="mt-8 space-y-6 text-muted leading-relaxed">
+            <div className="mt-8 space-y-6 text-muted-foreground leading-relaxed">
               <p>
                 Empecé pintando para mí, casi en secreto, buscando una manera de decir
                 lo que no encontraba en las palabras. Con el tiempo entendí que ese gesto
@@ -64,10 +64,6 @@ export default function SobreMiPage() {
                 Trabajo entre el lienzo, el mural y el objeto. Me interesa el arte que se
                 integra a la vida: una obra que cambia la energía de una casa, un mural que
                 transforma una empresa, una taza pintada a mano que acompaña las mañanas.
-              </p>
-              <p>
-                Mi paleta es cálida y terrosa —rojo quemado, cobre, mostaza, oliva— porque
-                creo en una belleza imperfecta y profundamente humana.
               </p>
             </div>
           </Reveal>
@@ -101,7 +97,7 @@ export default function SobreMiPage() {
                   <span className="font-serif text-2xl text-burnt md:text-3xl">{item.year}</span>
                   <div>
                     <h3 className="font-serif text-xl md:text-2xl">{item.title}</h3>
-                    <p className="mt-2 max-w-xl text-muted leading-relaxed">{item.text}</p>
+                    <p className="mt-2 max-w-xl text-muted-foreground leading-relaxed">{item.text}</p>
                   </div>
                 </div>
               </Reveal>
@@ -161,7 +157,7 @@ export default function SobreMiPage() {
             <Reveal key={v.title} delay={i * 0.08}>
               <div className="border-t border-burnt/40 pt-6">
                 <h3 className="font-serif text-2xl">{v.title}</h3>
-                <p className="mt-3 text-muted leading-relaxed">{v.text}</p>
+                <p className="mt-3 text-muted-foreground leading-relaxed">{v.text}</p>
               </div>
             </Reveal>
           ))}

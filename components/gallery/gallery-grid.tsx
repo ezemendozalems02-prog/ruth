@@ -26,7 +26,7 @@ export function GalleryGrid({ works }: { works: Product[] }) {
             className={`rounded-full px-4 py-2 text-xs font-medium uppercase tracking-[0.15em] transition-colors ${
               active === f
                 ? 'bg-foreground text-background'
-                : 'text-muted hover:text-foreground'
+                : 'text-muted-foreground hover:text-foreground'
             }`}
           >
             {f}
@@ -52,7 +52,7 @@ export function GalleryGrid({ works }: { works: Product[] }) {
       </motion.div>
 
       {filtered.length === 0 && (
-        <p className="py-20 text-center text-muted">No hay obras en esta categoría por ahora.</p>
+        <p className="py-20 text-center text-muted-foreground">No hay obras en esta categoría por ahora.</p>
       )}
     </div>
   )
