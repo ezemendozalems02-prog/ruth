@@ -1,3 +1,5 @@
+const mapsQuery = 'Ramos Mejía, La Matanza, Buenos Aires, Argentina'
+
 export const site = {
   name: 'Ruth Delgado',
   role: 'Artista Visual',
@@ -7,9 +9,33 @@ export const site = {
   instagramHandle: '@ruthdelgado.art',
   facebook: 'https://facebook.com',
   email: 'hola@ruthdelgado.art',
-  location: 'Buenos Aires, Argentina',
+  location: 'Ramos Mejía, Buenos Aires, Argentina',
+  address: 'Ramos Mejía, La Matanza, Buenos Aires',
+  mapsEmbedSrc: `https://www.google.com/maps?q=${encodeURIComponent(mapsQuery)}&output=embed`,
+  mapsUrl: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(mapsQuery)}`,
   tagline: 'El arte transforma espacios, emociones e historias.',
+  quote: 'El que pinta con el corazón, crea con el alma.',
 }
+
+export const education = [
+  {
+    title: 'Profesorado de Artes Visuales',
+    place: 'Conservatorio de Artes «Mabel Blanco»',
+  },
+]
+
+export type Exhibition = { name: string; place?: string }
+
+export const exhibitions: Exhibition[] = [
+  { name: 'Palacio Barolo', place: 'Buenos Aires' },
+  { name: 'Casa de la Cultura de Ramos Mejía', place: 'Ramos Mejía, Buenos Aires' },
+  { name: '365 Expo' },
+  { name: '«Pintar», de Ezequiel Orué' },
+  { name: 'Lazo Rosa', place: 'Misiones' },
+]
+
+export const workshopGroupNote =
+  'Trabajamos en grupos reducidos de hasta 4 personas, para un proceso más personalizado y atento al interés de cada alumno.'
 
 export type Category =
   | 'Abstracto'
@@ -234,6 +260,7 @@ export type Workshop = {
   location: string
   seats: number
   seatsLeft: number
+  groupNote?: string
   price: number
   program: { step: string; detail: string }[]
   learn: string[]
@@ -249,15 +276,16 @@ export const workshops: Workshop[] = [
     cover: '/images/taller-1.png',
     short: 'Dos jornadas para encontrar tu gesto propio a través del color y la materia.',
     description:
-      'Un intensivo pensado para soltar la mano y confiar en el gesto. Trabajaremos con óleo y acrílico en gran formato, explorando la textura, la capa y el color como lenguaje emocional.',
+      'Un intensivo pensado para soltar la mano y confiar en el gesto. Trabajaremos con óleo y acrílico en gran formato, explorando la textura, la capa y el color como lenguaje emocional. Grupo reducido de hasta 4 personas para un acompañamiento cercano y personalizado.',
     duration: '2 jornadas · 8 horas',
     level: 'Todos los niveles',
     materials: 'Incluidos (lienzo, pinturas y pinceles)',
     age: 'Desde 16 años',
     date: '15 y 16 de marzo',
-    location: 'Estudio Ruth Delgado, Buenos Aires',
-    seats: 12,
-    seatsLeft: 4,
+    location: 'Estudio Ruth Delgado, Ramos Mejía, Buenos Aires',
+    seats: 4,
+    seatsLeft: 2,
+    groupNote: 'Grupo reducido de hasta 4 personas',
     price: 320,
     program: [
       { step: 'Jornada 1 · Mañana', detail: 'El gesto y la mancha. Ejercicios de calentamiento y color.' },
@@ -288,15 +316,16 @@ export const workshops: Workshop[] = [
     cover: '/images/taller-2.png',
     short: 'Un espacio semanal para dominar la transparencia y la luz de la acuarela.',
     description:
-      'Encuentros semanales en grupo reducido para desarrollar una práctica constante. Cada clase propone un ejercicio nuevo dentro de un recorrido progresivo.',
+      'Encuentros semanales en grupo reducido de hasta 4 personas para desarrollar una práctica constante y trabajar según el interés de cada alumno. Cada clase propone un ejercicio nuevo dentro de un recorrido progresivo.',
     duration: '1 encuentro semanal · 2 horas',
     level: 'Inicial e intermedio',
     materials: 'A cargo del alumno (lista provista)',
     age: 'Desde 14 años',
     date: 'Todos los martes · 18 h',
-    location: 'Estudio Ruth Delgado, Buenos Aires',
-    seats: 8,
-    seatsLeft: 2,
+    location: 'Estudio Ruth Delgado, Ramos Mejía, Buenos Aires',
+    seats: 4,
+    seatsLeft: 1,
+    groupNote: 'Grupo reducido de hasta 4 personas',
     price: 90,
     program: [
       { step: 'Semana 1', detail: 'Aguadas y control del agua.' },
@@ -331,9 +360,10 @@ export const workshops: Workshop[] = [
     materials: 'Incluidos',
     age: 'Desde 16 años',
     date: '28 de marzo · 15 h',
-    location: 'Estudio Ruth Delgado, Buenos Aires',
+    location: 'Estudio Ruth Delgado, Ramos Mejía, Buenos Aires',
     seats: 20,
     seatsLeft: 11,
+    groupNote: 'Formato seminario a sala completa (no es clase personalizada)',
     price: 140,
     program: [
       { step: 'Bloque 1', detail: 'Teoría del color aplicada a la práctica artística.' },

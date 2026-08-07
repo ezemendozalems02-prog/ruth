@@ -2,13 +2,14 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import { Reveal } from '@/components/reveal'
 import { PageIntro } from '@/components/page-intro'
-import { BrushButton } from '@/components/brush-button'
+import { BrushLink } from '@/components/brush-button'
 import { Testimonials } from '@/components/testimonials'
+import { site, education, exhibitions } from '@/lib/data'
 
 export const metadata: Metadata = {
   title: 'Sobre mí',
   description:
-    'Ruth Delgado, artista visual. Más de quince años dedicados al color, el gesto y la búsqueda de una belleza cálida y humana.',
+    'Ruth Delgado, artista visual. Formada en el Conservatorio de Artes Mabel Blanco, con obra exhibida en el Palacio Barolo, la Casa de la Cultura de Ramos Mejía y más.',
 }
 
 const timeline = [
@@ -70,9 +71,14 @@ export default function SobreMiPage() {
               </p>
             </div>
           </Reveal>
+          <Reveal delay={0.15}>
+            <blockquote className="mt-10 border-l-2 border-burnt pl-6 font-serif text-2xl italic leading-snug text-foreground md:text-3xl">
+              «{site.quote}»
+            </blockquote>
+          </Reveal>
           <Reveal delay={0.2}>
             <div className="mt-10">
-              <BrushButton href="/galeria">Ver mi obra</BrushButton>
+              <BrushLink href="/galeria">Ver mi obra</BrushLink>
             </div>
           </Reveal>
         </div>
@@ -100,6 +106,51 @@ export default function SobreMiPage() {
                 </div>
               </Reveal>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="border-t border-line">
+        <div className="mx-auto max-w-[1400px] px-5 py-24 md:px-10 md:py-32">
+          <div className="grid gap-16 md:grid-cols-2 md:gap-20">
+            <Reveal>
+              <span className="text-[0.7rem] font-medium uppercase tracking-[0.4em] text-burnt">
+                Formación
+              </span>
+              <h2 className="mt-5 max-w-md font-serif text-3xl font-light tracking-tight md:text-4xl">
+                Una base construida con oficio
+              </h2>
+              <ul className="mt-8 space-y-6">
+                {education.map((e) => (
+                  <li key={e.title} className="border-t border-line pt-4">
+                    <p className="font-serif text-xl">{e.title}</p>
+                    <p className="mt-1 text-sm text-muted-foreground">{e.place}</p>
+                  </li>
+                ))}
+              </ul>
+            </Reveal>
+
+            <Reveal delay={0.1}>
+              <span className="text-[0.7rem] font-medium uppercase tracking-[0.4em] text-burnt">
+                Exposiciones
+              </span>
+              <h2 className="mt-5 max-w-md font-serif text-3xl font-light tracking-tight md:text-4xl">
+                Obra exhibida en
+              </h2>
+              <ul className="mt-8 space-y-4">
+                {exhibitions.map((ex) => (
+                  <li key={ex.name} className="flex items-baseline gap-3 border-t border-line pt-4">
+                    <span className="mb-1 h-1.5 w-1.5 shrink-0 rounded-full bg-copper" />
+                    <span>
+                      <span className="font-serif text-lg">{ex.name}</span>
+                      {ex.place && (
+                        <span className="ml-2 text-sm text-muted-foreground">— {ex.place}</span>
+                      )}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </Reveal>
           </div>
         </div>
       </section>

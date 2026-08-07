@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import { Reveal } from '@/components/reveal'
 import { BrushLink } from '@/components/brush-button'
+import { site } from '@/lib/data'
 
 export function AboutPreview() {
   return (
@@ -21,6 +22,9 @@ export function AboutPreview() {
           <p className="mt-4 max-w-md text-pretty leading-relaxed text-muted-foreground">
             Trabajo entre el lienzo, el mural y el objeto, convencida de que el
             arte no debe quedarse en las galerías, sino habitar la vida cotidiana.
+          </p>
+          <p className="mt-6 max-w-md font-serif text-lg italic leading-snug text-foreground">
+            «{site.quote}»
           </p>
           <div className="mt-10">
             <BrushLink href="/sobre-mi" variant="outline">

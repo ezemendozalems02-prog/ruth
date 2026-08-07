@@ -79,7 +79,14 @@ export function SiteFooter() {
           <p>
             © {new Date().getFullYear()} {site.name} · {site.role}
           </p>
-          <p>{site.location}</p>
+          <a
+            href={site.mapsUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="transition-colors hover:text-copper"
+          >
+            {site.address}
+          </a>
         </div>
       </div>
     </footer>
