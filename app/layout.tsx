@@ -7,6 +7,8 @@ import { Preloader } from '@/components/preloader'
 import { CustomCursor } from '@/components/custom-cursor'
 import { SiteNav } from '@/components/site-nav'
 import { SiteFooter } from '@/components/site-footer'
+import { CartProvider } from '@/components/cart/cart-context'
+import { CartBar } from '@/components/cart/cart-bar'
 import './globals.css'
 
 const cormorant = Cormorant_Garamond({
@@ -83,9 +85,12 @@ export default function RootLayout({
       <body className="font-sans antialiased">
         <Preloader />
         <CustomCursor />
-        <SiteNav />
-        <Suspense fallback={null}>{children}</Suspense>
-        <SiteFooter />
+        <CartProvider>
+          <SiteNav />
+          <Suspense fallback={null}>{children}</Suspense>
+          <SiteFooter />
+          <CartBar />
+        </CartProvider>
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>

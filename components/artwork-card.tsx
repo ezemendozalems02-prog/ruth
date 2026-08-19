@@ -1,7 +1,11 @@
+'use client'
+
 import Image from 'next/image'
 import Link from 'next/link'
+import { Check, Plus } from 'lucide-react'
 import type { Product } from '@/lib/data'
 import { cn } from '@/lib/utils'
+import { useCart } from '@/components/cart/cart-context'
 
 export function ArtworkCard({
   product,
@@ -12,6 +16,9 @@ export function ArtworkCard({
   className?: string
   priority?: boolean
 }) {
+  const { has, toggle } = useCart()
+  const inCart = has(product.slug)
+
   return (
     <Link
       href={`/catalogo/${product.slug}`}
@@ -34,6 +41,27 @@ export function ArtworkCard({
           <span className="absolute left-4 top-4 rounded-full bg-background/90 px-3 py-1 text-[0.6rem] font-medium uppercase tracking-[0.2em] text-foreground">
             Vendida
           </span>
+        )}
+        {product.available && (
+          <button
+            type="button"
+            onClick={(e) => {
+              e.preventDefault()
+              e.stopPropagation()
+              toggle({ slug: product.slug, title: product.title, image: product.image })
+            }}
+            aria-label={inCart ? 'Quitar del pedido' : 'Agregar al pedido'}
+            aria-pressed={inCart}
+            data-cursor="button"
+            className={cn(
+              'absolute right-4 top-4 flex h-9 w-9 items-center justify-center rounded-full border transition-colors duration-300',
+              inCart
+                ? 'border-burnt bg-burnt text-background'
+                : 'border-background/70 bg-background/90 text-foreground hover:border-burnt hover:text-burnt',
+            )}
+          >
+            {inCart ? <Check className="h-4 w-4" /> : <Plus className="h-4 w-4" />}
+          </button>
         )}
       </div>
 

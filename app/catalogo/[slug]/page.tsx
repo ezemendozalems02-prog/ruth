@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { Reveal } from '@/components/reveal'
 import { BrushAnchor } from '@/components/brush-button'
 import { ArtworkCard } from '@/components/artwork-card'
+import { AddToOrderButton } from '@/components/catalogo/add-to-order-button'
 import { products, site } from '@/lib/data'
 
 export function generateStaticParams() {
@@ -125,6 +126,9 @@ export default async function ProductPage({
             <div className="mt-10 flex flex-wrap items-center gap-5 border-t border-border pt-8">
               {product.price && (
                 <span className="font-serif text-3xl tracking-tight">USD {product.price}</span>
+              )}
+              {product.available && (
+                <AddToOrderButton slug={product.slug} title={product.title} image={product.image} />
               )}
               <BrushAnchor href={waHref} target="_blank" rel="noreferrer" variant="solid">
                 Consultar por WhatsApp

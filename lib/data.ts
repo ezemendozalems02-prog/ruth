@@ -3,8 +3,8 @@ const mapsQuery = 'M. Moreno 29, Local 14, Galería Imperio, Ramos Mejía, Bueno
 export const site = {
   name: 'Ruth Delgado',
   role: 'Artista Visual',
-  whatsapp: '+5491100000000',
-  whatsappDisplay: '+54 9 11 0000 0000',
+  whatsapp: '+5491137674616',
+  whatsappDisplay: '+54 9 11 3767-4616',
   instagram: 'https://instagram.com',
   instagramHandle: '@ruthdelgado.art',
   facebook: 'https://facebook.com',
