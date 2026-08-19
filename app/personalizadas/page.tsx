@@ -25,7 +25,7 @@ const steps = [
   {
     step: '03',
     title: 'Creación',
-    text: 'Trabajo la pieza en el estudio —o el mural en tu espacio— con seguimiento fotográfico del proceso.',
+    text: 'Trabajo la pieza en el estudio, con seguimiento fotográfico de todo el proceso.',
   },
   {
     step: '04',
@@ -36,8 +36,7 @@ const steps = [
 
 const options = [
   { title: 'Cuadro a medida', text: 'Obra original en el formato, la paleta y la técnica que elijas.' },
-  { title: 'Mural', text: 'Intervenciones a gran escala para casas, empresas y locales.' },
-  { title: 'Objeto pintado', text: 'Muebles, macetas, mates o tazas pintados a mano para regalar o regalarte.' },
+  { title: 'Objeto pintado', text: 'Macetas, mates o tazas pintados a mano para regalar o regalarte.' },
 ]
 
 export default function PersonalizadasPage() {
@@ -53,7 +52,7 @@ export default function PersonalizadasPage() {
       />
 
       <section className="mx-auto max-w-[1400px] px-5 pb-24 md:px-10 md:pb-32">
-        <div className="grid gap-10 sm:grid-cols-3 sm:gap-6">
+        <div className="grid gap-10 sm:grid-cols-2 sm:gap-6">
           {options.map((o) => (
             <Reveal key={o.title}>
               <div className="border-t border-burnt/40 pt-6">

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { PageIntro } from '@/components/page-intro'
 import { GalleryGrid } from '@/components/gallery/gallery-grid'
+import { StudentExhibition } from '@/components/gallery/student-exhibition'
 import { products } from '@/lib/data'
 
 export const metadata: Metadata = {
@@ -22,6 +23,7 @@ export default function GaleriaPage() {
         description="Una selección de piezas originales. Cada obra es única, firmada y acompañada de su certificado de autenticidad."
       />
       <GalleryGrid works={works} />
+      <StudentExhibition />
     </main>
   )
 }

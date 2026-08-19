@@ -25,8 +25,8 @@ export function HomeCta() {
             </Reveal>
             <Reveal delay={0.1}>
               <p className="mx-auto mt-5 max-w-md text-pretty leading-relaxed text-background/80">
-                Creemos juntos una pieza única. Desde un cuadro hasta un mural
-                completo.
+                Creemos juntos una pieza única. Desde un cuadro hasta una obra
+                en técnica mixta.
               </p>
             </Reveal>
             <Reveal delay={0.2}>

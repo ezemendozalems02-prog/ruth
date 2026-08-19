@@ -7,7 +7,7 @@ import { services } from '@/lib/data'
 export const metadata: Metadata = {
   title: 'Servicios',
   description:
-    'Murales, cuadros, decoración, objetos pintados, regalos, arte corporativo y eventos con Ruth Delgado, artista visual.',
+    'Cuadros, arte mix media, collage, decoración, objetos pintados, regalos, arte corporativo, eventos y seminarios mensuales con Ruth Delgado, artista visual.',
 }
 
 export default function ServiciosPage() {

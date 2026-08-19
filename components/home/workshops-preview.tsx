@@ -17,8 +17,8 @@ export function WorkshopsPreview() {
           </h2>
           <p className="mt-8 max-w-md text-pretty leading-relaxed text-muted-foreground">
             Espacios íntimos y cuidados para que descubras tu propio lenguaje.
-            Desde intensivos de pintura abstracta hasta clases semanales de
-            acuarela.
+            Desde talleres de acrílico y óleo hasta propuestas en técnica
+            mixta.
           </p>
           <div className="mt-10">
             <BrushLink href="/talleres" variant="outline">
