@@ -23,8 +23,8 @@ export default function GaleriaPage() {
         title="Obras que respiran color"
         description="Una selección de piezas originales. Cada obra es única, firmada y acompañada de su certificado de autenticidad."
       />
-      <GalleryGrid works={works} />
       <CatalogWorks images={catalogWorksImages} />
+      <GalleryGrid works={works} />
       <StudentExhibition />
     </main>
   )
