@@ -5,9 +5,11 @@ import { Reveal } from '@/components/reveal'
 import { BrushAnchor } from '@/components/brush-button'
 import { ArtworkCard } from '@/components/artwork-card'
 import { AddToOrderButton } from '@/components/catalogo/add-to-order-button'
-import { products, site } from '@/lib/data'
+import { site } from '@/lib/data'
+import { getArtworkBySlug, getCatalogArtworks, getRelatedArtworks } from '@/lib/artworks'
 
-export function generateStaticParams() {
+export async function generateStaticParams() {
+  const products = await getCatalogArtworks()
   return products.map((p) => ({ slug: p.slug }))
 }
 
@@ -17,7 +19,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>
 }): Promise<Metadata> {
   const { slug } = await params
-  const product = products.find((p) => p.slug === slug)
+  const product = await getArtworkBySlug(slug)
   if (!product) return {}
   return {
     title: product.title,
@@ -31,12 +33,10 @@ export default async function ProductPage({
   params: Promise<{ slug: string }>
 }) {
   const { slug } = await params
-  const product = products.find((p) => p.slug === slug)
+  const product = await getArtworkBySlug(slug)
   if (!product) notFound()
 
-  const related = products
-    .filter((p) => p.slug !== product.slug && p.category.some((c) => product.category.includes(c)))
-    .slice(0, 3)
+  const related = await getRelatedArtworks(product.slug, product.category, 3)
 
   const waMessage = encodeURIComponent(`Hola Ruth! Te escribo por «${product.title}» del catálogo.`)
   const waHref = `https://wa.me/${site.whatsapp.replace(/\D/g, '')}?text=${waMessage}`

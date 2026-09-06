@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { Check, Plus } from 'lucide-react'
-import type { Product } from '@/lib/data'
+import type { Artwork } from '@/lib/artworks'
 import { cn } from '@/lib/utils'
 import { useCart } from '@/components/cart/cart-context'
 
@@ -12,7 +12,7 @@ export function ArtworkCard({
   className,
   priority,
 }: {
-  product: Product
+  product: Artwork
   className?: string
   priority?: boolean
 }) {

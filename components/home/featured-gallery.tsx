@@ -1,9 +1,10 @@
 import { Reveal } from '@/components/reveal'
 import { ArtworkCard } from '@/components/artwork-card'
 import { BrushLink } from '@/components/brush-button'
-import { featuredProducts } from '@/lib/data'
+import { getFeaturedArtworks } from '@/lib/artworks'
 
-export function FeaturedGallery() {
+export async function FeaturedGallery() {
+  const featuredProducts = await getFeaturedArtworks()
   const works = featuredProducts.slice(0, 5)
 
   return (

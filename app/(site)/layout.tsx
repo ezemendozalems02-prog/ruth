@@ -9,7 +9,7 @@ import { SiteNav } from '@/components/site-nav'
 import { SiteFooter } from '@/components/site-footer'
 import { CartProvider } from '@/components/cart/cart-context'
 import { CartBar } from '@/components/cart/cart-bar'
-import './globals.css'
+import '../globals.css'
 
 const cormorant = Cormorant_Garamond({
   subsets: ['latin'],

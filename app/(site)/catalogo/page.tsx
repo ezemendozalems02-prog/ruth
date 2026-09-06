@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
 import { PageIntro } from '@/components/page-intro'
 import { CatalogGrid } from '@/components/catalogo/catalog-grid'
-import { products, categories } from '@/lib/data'
+import { categories } from '@/lib/data'
+import { getCatalogArtworks } from '@/lib/artworks'
 
 export const metadata: Metadata = {
   title: 'Catálogo',
@@ -9,7 +10,8 @@ export const metadata: Metadata = {
     'Catálogo completo de Ruth Delgado: obras originales, objetos pintados a mano, murales y piezas personalizadas.',
 }
 
-export default function CatalogoPage() {
+export default async function CatalogoPage() {
+  const products = await getCatalogArtworks()
   return (
     <main>
       <PageIntro
