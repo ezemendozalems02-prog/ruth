@@ -65,14 +65,14 @@ export function ArtworkCard({
         )}
       </div>
 
-      <div className="flex items-start justify-between gap-4 pt-4">
-        <div>
+      <div className="flex items-start justify-between gap-3 pt-4">
+        <div className="min-w-0 flex-1">
           <h3 className="font-serif text-xl leading-tight tracking-tight transition-colors group-hover:text-burnt">
             {product.title}
           </h3>
-          <p className="mt-1 text-sm text-muted-foreground">{product.technique}</p>
+          <p className="mt-1 truncate text-sm text-muted-foreground">{product.technique}</p>
         </div>
-        <span className="whitespace-nowrap pt-1 text-xs uppercase tracking-[0.15em] text-muted-foreground">
+        <span className="shrink-0 whitespace-nowrap pt-1 text-xs uppercase tracking-[0.15em] text-muted-foreground">
           {product.dimensions}
         </span>
       </div>

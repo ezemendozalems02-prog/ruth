@@ -13,7 +13,9 @@ function Field({ label, children }: { label: string; children: ReactNode }) {
 }
 
 const inputClass =
-  'w-full rounded-sm border border-border bg-background px-3.5 py-2.5 text-sm outline-none focus:border-burnt'
+  'w-full rounded-sm border border-border bg-background px-3.5 py-2.5 text-base outline-none focus:border-burnt sm:text-sm'
+
+const checkboxClass = 'h-4 w-4 shrink-0 accent-burnt'
 
 export function ArtworkForm({
   action,
@@ -111,7 +113,7 @@ export function ArtworkForm({
                   name="category"
                   value={c}
                   defaultChecked={artwork?.category.includes(c)}
-                  className="accent-burnt"
+                  className={checkboxClass}
                 />
                 {c}
               </label>
@@ -125,7 +127,7 @@ export function ArtworkForm({
               type="checkbox"
               name="show_in_catalog"
               defaultChecked={artwork ? artwork.showInCatalog : true}
-              className="accent-burnt"
+              className={checkboxClass}
             />
             Mostrar en Catálogo
           </label>
@@ -134,7 +136,7 @@ export function ArtworkForm({
               type="checkbox"
               name="show_in_gallery"
               defaultChecked={artwork ? artwork.showInGallery : true}
-              className="accent-burnt"
+              className={checkboxClass}
             />
             Mostrar en Galería
           </label>
@@ -143,7 +145,7 @@ export function ArtworkForm({
               type="checkbox"
               name="available"
               defaultChecked={artwork ? artwork.available : true}
-              className="accent-burnt"
+              className={checkboxClass}
             />
             Disponible
           </label>
@@ -152,7 +154,7 @@ export function ArtworkForm({
               type="checkbox"
               name="featured"
               defaultChecked={artwork?.featured}
-              className="accent-burnt"
+              className={checkboxClass}
             />
             Destacada en home
           </label>

@@ -4,7 +4,13 @@ import { cookies } from 'next/headers'
 import { redirect } from 'next/navigation'
 import { revalidatePath } from 'next/cache'
 import { randomUUID } from 'crypto'
-import { ADMIN_COOKIE_NAME, ADMIN_COOKIE_MAX_AGE, createSessionValue, verifySessionValue } from '@/lib/auth'
+import {
+  ADMIN_COOKIE_NAME,
+  ADMIN_COOKIE_MAX_AGE,
+  createSessionValue,
+  verifySessionValue,
+  verifyCredentials,
+} from '@/lib/auth'
 import { getAdminClient } from '@/lib/supabase/server'
 import { slugify } from '@/lib/utils'
 import type { Category } from '@/lib/data'
@@ -26,8 +32,9 @@ function revalidateArtworkPaths(slug?: string) {
 }
 
 export async function login(formData: FormData) {
+  const username = String(formData.get('username') ?? '')
   const password = String(formData.get('password') ?? '')
-  if (!password || password !== process.env.ADMIN_PASSWORD) {
+  if (!username || !password || !verifyCredentials(username, password)) {
     redirect('/admin/login?error=1')
   }
 

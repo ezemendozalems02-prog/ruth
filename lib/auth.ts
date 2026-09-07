@@ -16,6 +16,26 @@ export function createSessionValue() {
   return `${payload}.${sign(payload)}`
 }
 
+function timingSafeStringEqual(a: string, b: string): boolean {
+  const bufA = Buffer.from(a)
+  const bufB = Buffer.from(b)
+  if (bufA.length !== bufB.length) {
+    // Igual comparamos contra sí mismo para no filtrar la longitud por timing.
+    timingSafeEqual(bufA, bufA)
+    return false
+  }
+  return timingSafeEqual(bufA, bufB)
+}
+
+export function verifyCredentials(username: string, password: string): boolean {
+  const expectedUser = process.env.ADMIN_USERNAME ?? ''
+  const expectedPass = process.env.ADMIN_PASSWORD ?? ''
+  if (!expectedUser || !expectedPass) return false
+  const userOk = timingSafeStringEqual(username, expectedUser)
+  const passOk = timingSafeStringEqual(password, expectedPass)
+  return userOk && passOk
+}
+
 export function verifySessionValue(value: string | undefined | null): boolean {
   if (!value) return false
   const parts = value.split('.')
