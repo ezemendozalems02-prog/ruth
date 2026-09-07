@@ -27,12 +27,13 @@ export function Hero() {
         data-cursor="image"
       >
         <Image
-          src="/images/ruth-hero.png"
-          alt="Ruth Delgado pintando en su estudio"
+          src="/images/ruth-hero-mano.png"
+          alt="Mano de la artista pintando un lienzo con una espátula"
           fill
           priority
           sizes="100vw"
-          className="object-cover object-center"
+          className="object-cover"
+          style={{ objectPosition: '30% 40%' }}
         />
         <motion.div
           className="absolute inset-0 bg-graphite"
