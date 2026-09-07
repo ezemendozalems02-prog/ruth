@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { Reveal } from '@/components/reveal'
 import { BrushAnchor } from '@/components/brush-button'
 import { workshops, site, workshopGroupNote } from '@/lib/data'
+import { formatARS } from '@/lib/utils'
 
 export function generateStaticParams() {
   return workshops.map((w) => ({ slug: w.slug }))
@@ -142,7 +143,7 @@ export default async function WorkshopPage({
         <div>
           <Reveal delay={0.1}>
             <div className="sticky top-28 rounded-sm border border-border p-8">
-              <p className="font-serif text-4xl tracking-tight">USD {workshop.price}</p>
+              <p className="font-serif text-4xl tracking-tight">{formatARS(workshop.price)}</p>
               <p className="mt-1 text-sm text-muted-foreground">
                 {workshop.seatsLeft} de {workshop.seats} cupos disponibles
               </p>

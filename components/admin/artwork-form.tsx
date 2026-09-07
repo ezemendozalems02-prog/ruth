@@ -82,7 +82,7 @@ export function ArtworkForm({
           <Field label="Año">
             <input type="text" name="year" defaultValue={artwork?.year} className={inputClass} />
           </Field>
-          <Field label="Precio (USD)">
+          <Field label="Precio (ARS)">
             <input
               type="number"
               name="price"

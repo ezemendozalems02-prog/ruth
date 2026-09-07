@@ -5,6 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { toggleField, deleteArtwork } from '@/app/admin/actions'
 import type { Artwork } from '@/lib/artworks'
+import { formatARS } from '@/lib/utils'
 
 type ToggleField = 'show_in_catalog' | 'show_in_gallery' | 'available' | 'featured'
 
@@ -75,7 +76,7 @@ function ArtworkCardRow({ a }: { a: Artwork }) {
         <div className="min-w-0 flex-1">
           <p className="truncate font-medium">{a.title}</p>
           <p className="truncate text-xs text-muted-foreground">{a.technique}</p>
-          <p className="mt-1 text-sm">{a.price ? `USD ${a.price}` : 'Sin precio'}</p>
+          <p className="mt-1 text-sm">{a.price ? formatARS(a.price) : 'Sin precio'}</p>
         </div>
         <div className="flex shrink-0 flex-col items-end gap-2 text-right">
           <Link href={`/admin/${a.slug}`} className="text-xs text-burnt hover:underline">
@@ -154,7 +155,7 @@ export function AdminArtworkList({ artworks }: { artworks: Artwork[] }) {
                     </div>
                   </div>
                 </td>
-                <td className="whitespace-nowrap px-4 py-3">{a.price ? `USD ${a.price}` : '—'}</td>
+                <td className="whitespace-nowrap px-4 py-3">{a.price ? formatARS(a.price) : '—'}</td>
                 <td className="px-4 py-3">
                   <ToggleForm slug={a.slug} field="show_in_catalog" value={a.showInCatalog} labelOn="Sí" labelOff="No" />
                 </td>

@@ -7,6 +7,7 @@ import { ArtworkCard } from '@/components/artwork-card'
 import { AddToOrderButton } from '@/components/catalogo/add-to-order-button'
 import { site } from '@/lib/data'
 import { getArtworkBySlug, getCatalogArtworks, getRelatedArtworks } from '@/lib/artworks'
+import { formatARS } from '@/lib/utils'
 
 export async function generateStaticParams() {
   const products = await getCatalogArtworks()
@@ -125,7 +126,7 @@ export default async function ProductPage({
           <Reveal delay={0.2}>
             <div className="mt-10 flex flex-wrap items-center gap-5 border-t border-border pt-8">
               {product.price && (
-                <span className="font-serif text-3xl tracking-tight">USD {product.price}</span>
+                <span className="font-serif text-3xl tracking-tight">{formatARS(product.price)}</span>
               )}
               {product.available && (
                 <AddToOrderButton slug={product.slug} title={product.title} image={product.image} />
